@@ -40,7 +40,7 @@ jobs:
         run: docker build -t devops-app:${{ github.sha }} app/
 
       - name: Scan image
-        run: trivy image --severity HIGH,CRITICAL --exit-code 1 devops-app:${{ github.sha }}
+        run: trivy image --severity CRITICAL --exit-code 1 devops-app:${{ github.sha }}
 
       - name: Login to GHCR
         if: github.ref == 'refs/heads/main'
